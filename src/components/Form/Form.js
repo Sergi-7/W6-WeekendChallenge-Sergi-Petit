@@ -8,7 +8,7 @@ const Form = () => {
     stats: {
       speed: "",
       stamina: "",
-      date: new Date(),
+      date: "",
     },
   };
   const { createRobot } = useRobots();
@@ -38,6 +38,13 @@ const Form = () => {
     setNewRobot({
       ...robot,
       stats: { ...robot.stats, stamina: event.target.value },
+    });
+  };
+
+  const handleDateOnChange = (event) => {
+    setNewRobot({
+      ...robot,
+      stats: { ...robot.stats, date: event.target.value },
     });
   };
 
@@ -75,6 +82,12 @@ const Form = () => {
         value={robot.stats.stamina}
         onChange={handleStaminaOnChange}
       ></input>
+      <input
+        type="date"
+        id="date"
+        value={robot.stats.date}
+        onChange={handleDateOnChange}
+      />
       <button type="submit" value="submit">
         Submit
       </button>
