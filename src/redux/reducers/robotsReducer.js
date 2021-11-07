@@ -15,6 +15,17 @@ const robotsReducer = (robots = [], action) => {
     case actionTypes.createRobot:
       newRobots = [...robots, action.robot];
       break;
+
+    case actionTypes.updateRobot:
+      newRobots = robots.map((robot) =>
+        robot.id === action.robot.id
+          ? {
+              ...robot,
+              ...action.robot,
+            }
+          : robot
+      );
+      break;
     default:
       return robots;
   }
