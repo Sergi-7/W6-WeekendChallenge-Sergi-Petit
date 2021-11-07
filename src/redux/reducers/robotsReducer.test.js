@@ -1,5 +1,6 @@
 import RobotList from "../../components/RobotList/RobotList";
 import {
+  createRobotAction,
   deleteRobotAction,
   loadRobotsAction,
 } from "../actions/actionsCreators";
@@ -68,6 +69,26 @@ describe("Given a robotsReducer", () => {
       const newRobotsList = robotsReducer(robotsList, action);
 
       expect(newRobotsList).not.toContain(deletedRobot);
+    });
+  });
+  describe("When it receives a createRobot action", () => {
+    test("Then it should return a list with al the robots and the new robot", () => {
+      const initialRobotsList = [];
+      const newRobot = {
+        name: "santi",
+        image: "santi.dot",
+        id: 1,
+        stats: {
+          speed: 3,
+          stamina: 3,
+          date: "131313",
+        },
+      };
+
+      const action = createRobotAction(newRobot);
+      const newRobotsList = robotsReducer(initialRobotsList, action);
+
+      expect(newRobotsList).toContain(newRobot);
     });
   });
 });

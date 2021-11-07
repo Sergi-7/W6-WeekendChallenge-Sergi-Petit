@@ -1,6 +1,7 @@
 import {
   loadRobotsAction,
   deleteRobotAction,
+  createRobotAction,
 } from "../actions/actionsCreators";
 
 export const loadRobotsThunk = () => {
@@ -23,5 +24,22 @@ export const deleteRobotThunk = (id) => {
     if (response.ok) {
       dispatch(deleteRobotAction(id));
     }
+  };
+};
+
+export const createRobotThunk = (robot) => {
+  return async (dispatch) => {
+    const response = await fetch(
+      `https://robots-api-sergi.herokuapp.com/robots/create`,
+      {
+        method: "POST",
+        body: JSON.stringify(robot),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const newRobot = await response.json();
+    dispatch(createRobotAction(newRobot));
   };
 };
