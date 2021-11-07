@@ -2,6 +2,7 @@ import {
   loadRobotsAction,
   deleteRobotAction,
   createRobotAction,
+  updateRobotAction,
 } from "../actions/actionsCreators";
 
 export const loadRobotsThunk = () => {
@@ -36,4 +37,16 @@ export const createRobotThunk = (robot) => {
     const newRobot = await response.json();
     dispatch(createRobotAction(newRobot));
   };
+};
+
+export const updateRobotThunk = (robot, id) => async (dispatch) => {
+  const response = await fetch(`${process.env.REACT_APP_URL}/update`, {
+    method: "PUT",
+    body: JSON.stringify(robot),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const newRobot = await response.json();
+  dispatch(updateRobotAction(newRobot, id));
 };

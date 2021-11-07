@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import useRobots from "../../hooks/useRobots";
 import RobotCard from "../RobotCard/RobotCard";
+import "./RobotList.css";
 
 const RobotList = () => {
   const { robots, loadRobots, deleteRobotById } = useRobots();
@@ -15,7 +16,7 @@ const RobotList = () => {
 
   return (
     <>
-      <ul>
+      <ul className="list">
         {robots.map((robot) => (
           <RobotCard
             key={robot._id}
