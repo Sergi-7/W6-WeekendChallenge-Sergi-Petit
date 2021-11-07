@@ -1,6 +1,9 @@
-import { loadRobotsAction } from "../actions/actionsCreators";
+import {
+  loadRobotsAction,
+  deleteRobotAction,
+} from "../actions/actionsCreators";
 
-const loadRobotsThunk = () => {
+export const loadRobotsThunk = () => {
   return async (dispatch) => {
     const response = await fetch(
       "https://robots-api-sergi.herokuapp.com/robots/"
@@ -11,4 +14,14 @@ const loadRobotsThunk = () => {
   };
 };
 
-export default loadRobotsThunk;
+export const deleteRobotThunk = (id) => {
+  return async (dispatch) => {
+    const response = await fetch(
+      `https://robots-api-sergi.herokuapp.com/robots/delete/${id}`,
+      { method: "DELETE" }
+    );
+    if (response.ok) {
+      dispatch(deleteRobotAction(id));
+    }
+  };
+};

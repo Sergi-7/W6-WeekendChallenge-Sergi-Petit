@@ -3,11 +3,15 @@ import useRobots from "../../hooks/useRobots";
 import RobotCard from "../RobotCard/RobotCard";
 
 const RobotList = () => {
-  const { robots, loadRobots } = useRobots();
+  const { robots, loadRobots, deleteRobotById } = useRobots();
 
   useEffect(() => {
     loadRobots();
-  }, [loadRobots]);
+  }, [loadRobots, robots]);
+
+  const onClickDeleteRobot = (id) => {
+    deleteRobotById(id);
+  };
 
   return (
     <>
@@ -18,6 +22,7 @@ const RobotList = () => {
             name={robot.name}
             image={robot.image}
             stats={robot.stats}
+            deleteAction={() => onClickDeleteRobot(robot._id)}
           ></RobotCard>
         ))}
       </ul>
