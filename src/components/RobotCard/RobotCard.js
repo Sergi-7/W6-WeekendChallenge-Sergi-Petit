@@ -2,7 +2,7 @@ const RobotCard = ({ name, image, stats, deleteAction, editAction }) => {
   return (
     <li className="list__card">
       <h2>{name}</h2>
-      <img src={image} alt={name} width="150" height="150"></img>
+      <img src={image} alt={name}></img>
       <p>{`Speed : ${stats.speed}`}</p>
       <p>{`Stamina : ${stats.stamina}`}</p>
       <p>{`Date of creation : ${stats.date} `}</p>
