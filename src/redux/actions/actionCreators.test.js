@@ -1,5 +1,9 @@
 import actionTypes from "./actionTypes";
-import { deleteRobotAction, loadRobotsAction } from "./actionsCreators";
+import {
+  createRobotAction,
+  deleteRobotAction,
+  loadRobotsAction,
+} from "./actionsCreators";
 
 describe("Given a loadRobotsAction", () => {
   describe("When it receives a list of robots", () => {
@@ -46,6 +50,31 @@ describe("Given a deleteRobotAction", () => {
       };
 
       const actionResult = deleteRobotAction(id);
+
+      expect(actionResult).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a createRobotAction", () => {
+  describe("When it receives a robot", () => {
+    test("Then it should create a type action with the new robot", () => {
+      const newRobot = {
+        name: "santi",
+        image: "santi.dot",
+        stats: {
+          speed: 3,
+          stamina: 3,
+          date: "131313",
+        },
+      };
+
+      const expectedAction = {
+        type: actionTypes.createRobot,
+        robot: newRobot,
+      };
+
+      const actionResult = createRobotAction(newRobot);
 
       expect(actionResult).toEqual(expectedAction);
     });
