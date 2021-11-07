@@ -43,21 +43,21 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Robot Name :</label>
+      <label htmlFor="name">Robot Name :</label>
       <input
         type="text"
         id="name"
         value={robot.name}
         onChange={handleNameOnChange}
       ></input>
-      <label>Image Url :</label>
+      <label htmlFor="image">Image Url :</label>
       <input
         type="url"
         id="image"
         value={robot.image}
         onChange={handleImageOnChange}
       ></input>
-      <label>Speed :</label>
+      <label htmlFor="speed">Speed :</label>
       <input
         type="number"
         id="speed"
@@ -66,7 +66,7 @@ const Form = () => {
         value={robot.stats.speed}
         onChange={handleSpeedOnChange}
       ></input>
-      <label>Stamina :</label>
+      <label htmlFor="stamina">Stamina :</label>
       <input
         type="number"
         id="stamina"
