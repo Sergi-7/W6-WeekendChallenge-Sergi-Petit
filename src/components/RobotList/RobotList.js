@@ -6,9 +6,9 @@ import "./RobotList.css";
 const RobotList = () => {
   const { robots, loadRobots, deleteRobotById } = useRobots();
 
-  useEffect(() => {
-    loadRobots();
-  }, [loadRobots, robots]);
+  // useEffect(() => {
+  //   loadRobots();
+  // }, [loadRobots, robots]);
 
   const onClickDeleteRobot = (id) => {
     deleteRobotById(id);
