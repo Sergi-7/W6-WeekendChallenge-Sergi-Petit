@@ -3,6 +3,7 @@ const actionTypes = {
   deleteRobot: "DELETE_ROBOT",
   createRobot: "CREATE_ROBOT",
   updateRobot: "UPDATE_ROBOT",
+  loginUser: "LOGIN_USER",
 };
 
 export default actionTypes;

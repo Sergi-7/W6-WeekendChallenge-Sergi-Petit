@@ -1,14 +1,14 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import useRobots from "../../hooks/useRobots";
 import RobotCard from "../RobotCard/RobotCard";
 import "./RobotList.css";
 
 const RobotList = () => {
-  const { robots, loadRobots, deleteRobotById } = useRobots();
+  const { robots, deleteRobotById } = useRobots();
 
-  useEffect(() => {
-    loadRobots();
-  }, [loadRobots, robots]);
+  // useEffect(() => {
+  //   loadRobots();
+  // }, [loadRobots, robots]);
 
   const onClickDeleteRobot = (id) => {
     deleteRobotById(id);
